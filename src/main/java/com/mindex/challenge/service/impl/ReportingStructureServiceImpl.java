@@ -1,5 +1,10 @@
 package com.mindex.challenge.service.impl;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +35,34 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
 
         ReportingStructure report = new ReportingStructure();
         report.setEmployee(employee);
-        // Find the direct reports (tree nodes of employee's direct reports)
-        // Need to handle null direct reports
-        report.setNumberOfReports(employee.getDirectReports().size());
+        int numberOfReports = countAllReports(employee);
+        report.setNumberOfReports(numberOfReports);
         return report;
+    }
+
+    private int countAllReports(Employee employee) {
+        if (employee == null) {
+            return 0;
+        }
+
+        int count = 0;
+        Queue<Employee> queue = new LinkedList<>();
+        queue.add(employee);
+
+        while (!queue.isEmpty()) {
+            Employee currentEmployee = queue.poll();
+            if (currentEmployee.getDirectReports() != null) {
+                for (Employee directReport : currentEmployee.getDirectReports()) {
+                    count++;
+                    Employee directReportDetails = employeeRepository.findByEmployeeId(directReport.getEmployeeId());
+                    if (directReportDetails != null) {
+                        queue.add(directReportDetails);
+                    }
+                }
+            }
+        }
+
+        return count;
     }
 
 }
