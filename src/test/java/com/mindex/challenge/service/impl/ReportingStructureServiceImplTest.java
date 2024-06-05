@@ -14,16 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.data.ReportingStructure;
-import com.mindex.challenge.service.ReportingStructureService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ReportingStructureServiceImplTest {
 
     private String reportToEmployeeIDUrl;
-
-    @Autowired
-    private ReportingStructureService reportingStructureService;
 
     @LocalServerPort
     private int port;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.service.CompensationService;
-import com.mindex.challenge.service.EmployeeService;
 
 @RestController
 public class CompensationController {
@@ -19,8 +18,6 @@ public class CompensationController {
 
     @Autowired
     private CompensationService compensationService;
-    @Autowired
-    private EmployeeService employeeService;
 
     @PostMapping("/compensation")
     public Compensation create(@RequestBody Compensation compensation) {

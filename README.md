@@ -8,6 +8,11 @@ accessed and mutated in the database without impacting the snapshot.
 ### How to Run
 The application may be executed by running `gradlew bootRun`.
 
+### How to Unit Test
+The application can be tested automatically with `gradlew test`.
+- There is a test report generated under build/reports/  (index.html)
+- ## Also can be tested with cURL, postman, insomnia, etc...##
+
 ### How to Use
 The following endpoints are available to use:
 ```
