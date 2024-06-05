@@ -21,7 +21,6 @@ import com.mindex.challenge.service.ReportingStructureService;
 public class ReportingStructureServiceImplTest {
 
     private String reportToEmployeeIDUrl;
-    private String employeeUrl;
 
     @Autowired
     private ReportingStructureService reportingStructureService;
@@ -34,7 +33,6 @@ public class ReportingStructureServiceImplTest {
 
     @Before
     public void setup() {
-        employeeUrl = "http://localhost:" + port + "/employee";
         reportToEmployeeIDUrl = "http://localhost:" + port + "/report-to/employee/{id}";
     }
 

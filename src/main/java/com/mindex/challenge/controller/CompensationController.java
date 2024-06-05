@@ -25,9 +25,6 @@ public class CompensationController {
     @PostMapping("/compensation")
     public Compensation create(@RequestBody Compensation compensation) {
         LOG.debug("Received compensation create request for [{}]", compensation);
-        if (employeeService.read(compensation.getEmployeeId()) == null) {
-            LOG.debug("Invalid employee id for [{}]", compensation.getEmployeeId());
-        }
         return compensationService.create(compensation);
     }
 
