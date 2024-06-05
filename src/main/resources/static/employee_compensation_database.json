@@ -1,0 +1,12 @@
+[
+    {
+        "employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f",
+        "salary": 75000.00,
+        "effectiveDate": "2023-01-01"
+    },
+    {
+        "employeeId": "b7839309-3348-463b-a7e3-5de1c168beb3",
+        "salary": 90000.00,
+        "effectiveDate": "2022-10-15"
+    }
+]
