@@ -37,6 +37,9 @@ public class CompensationServiceImplTest {
         compensationReadUrl = "http://localhost:" + port + "/compensation/{id}";
     }
 
+    /**
+     * Tests the reading of a newly created Compensation object with a mock api.
+     */
     @Test
     public void testCreateRead() {
         Compensation testCompensation = new Compensation();
@@ -59,6 +62,12 @@ public class CompensationServiceImplTest {
         assertCompensationEquivalence(createdCompensation, readCompensation);
     }
 
+    /*
+     * Helper method for modularity to compare full objects.  
+     * Note: The Compensation class could also have the equals and hashcode
+     * overridden to do assertEquals(expected, actual) and hide that logic in the class that should know how it would be equal
+     * to another instance of Compensation.
+     */
     private static void assertCompensationEquivalence(Compensation expected, Compensation actual) {
         assertEquals(expected.getEmployeeId(), actual.getEmployeeId());
         assertEquals(expected.getSalary(), actual.getSalary());

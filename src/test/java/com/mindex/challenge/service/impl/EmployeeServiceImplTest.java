@@ -1,7 +1,8 @@
 package com.mindex.challenge.service.impl;
 
-import com.mindex.challenge.data.Employee;
-import com.mindex.challenge.service.EmployeeService;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,8 +16,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import com.mindex.challenge.data.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -37,6 +37,9 @@ public class EmployeeServiceImplTest {
         employeeIdUrl = "http://localhost:" + port + "/employee/{id}";
     }
 
+     /**
+     * Tests the reading of a newly created Employee object with a mock api.
+     */
     @Test
     public void testCreateReadUpdate() {
         Employee testEmployee = new Employee();
@@ -74,6 +77,12 @@ public class EmployeeServiceImplTest {
         assertEmployeeEquivalence(readEmployee, updatedEmployee);
     }
 
+      /*
+     * Helper method for modularity to compare full objects.  
+     * Note: The Employee class could also have the equals and hashcode
+     * overridden to do assertEquals(expected, actual) and hide that logic in the class that should know how it would be equal
+     * to another instance of Employee.
+     */
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {
         assertEquals(expected.getFirstName(), actual.getFirstName());
         assertEquals(expected.getLastName(), actual.getLastName());

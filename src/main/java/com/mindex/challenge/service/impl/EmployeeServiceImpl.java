@@ -11,6 +11,9 @@ import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.EmployeeService;
 
+/**
+ * Provides functionality to create and return employees.
+ */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -19,6 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    /**
+     * Creates an Employee record.
+     */
     @Override
     public Employee create(Employee employee) {
         LOG.debug("Creating employee [{}]", employee);
@@ -29,19 +35,25 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+    /**
+     * Returns an Employee record from the given employee id.
+     */
     @Override
-    public Employee read(String id) {
-        LOG.debug("Querying employee with id [{}]", id);
+    public Employee read(String employeeId) {
+        LOG.debug("Querying employee with id [{}]", employeeId);
 
-        Employee employee = employeeRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(employeeId);
 
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
 
         return employee;
     }
 
+    /**
+     * Updates the given employee's record..
+     */
     @Override
     public Employee update(Employee employee) {
         LOG.debug("Updating employee [{}]", employee);

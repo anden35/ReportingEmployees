@@ -24,6 +24,9 @@ public class DataBootstrapTest {
     @Autowired
     private CompensationRepository compensationRepository;
 
+    /**
+     * Test the bootstrapping of the employee resources from the .json file.
+     */
     @Test
     public void testEmployeeHasBeenCreatedDuringBootstrap() {
         Employee employee = employeeRepository.findByEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
@@ -34,6 +37,9 @@ public class DataBootstrapTest {
         assertEquals("Engineering", employee.getDepartment());
     }
 
+    /**
+     * Test the bootstrapping of the compensation resources from the .json file.
+     */
     @Test
     public void testCompensationHasBeenCreatedDuringBootstrap() {
         Compensation compensation = compensationRepository.findByEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");

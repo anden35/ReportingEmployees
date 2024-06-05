@@ -14,6 +14,9 @@ import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.data.Employee;
 
+/**
+ * Entry point for bootstrapping the data for this application to work with.
+ */
 @Component
 public class DataBootstrap {
     private static final String EMPLOYEE_DATASTORE_LOCATION = "/static/employee_database.json";
@@ -26,6 +29,9 @@ public class DataBootstrap {
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * Operations to perform after this class is created to further setup dependencies and resources.
+     */
     @PostConstruct
     public void init() {
         InputStream employeeInputStream = this.getClass().getResourceAsStream(EMPLOYEE_DATASTORE_LOCATION);

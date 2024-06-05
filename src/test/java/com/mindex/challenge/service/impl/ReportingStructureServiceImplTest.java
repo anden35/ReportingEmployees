@@ -32,6 +32,9 @@ public class ReportingStructureServiceImplTest {
         reportToEmployeeIDUrl = "http://localhost:" + port + "/report-to/employee/{id}";
     }
 
+     /**
+     * Tests the reading of a newly created ReportingStructure object with a mock api.
+     */
     @Test
     public void testReadReportingsForEmployee() {
 
